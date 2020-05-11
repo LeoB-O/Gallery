@@ -1,49 +1,50 @@
 @font-face {
-  font-family: 'iconfont';
-  src: url('../../fonts/iconfont.eot');
-  src: url('../../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
-  url('../../fonts/iconfont.woff') format('woff'),
-  url('../../fonts/iconfont.ttf') format('truetype'),
-  url('../../fonts/iconfont.svg#iconfont') format('svg');
+  font-family: "iconfont";
+  src: url("../../fonts/iconfont.eot");
+  src: url("../../fonts/iconfont.eot?#iefix") format("embedded-opentype"),
+    url("../../fonts/iconfont.woff") format("woff"),
+    url("../../fonts/iconfont.ttf") format("truetype"),
+    url("../../fonts/iconfont.svg#iconfont") format("svg");
 }
-.iconfont{
-  font-family:"iconfont" !important;
-  font-size:16px;font-style:normal;
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-html{
+html {
   height: 100%;
 }
-body{
+body {
   margin: 0;
   padding: 0;
   background: #333;
   width: 100%;
   height: 100%;
 }
-h3{
+h3 {
   margin: 0;
   padding: 0;
 }
-#root{
+#root {
   height: 100%;
 }
-.stage{
+.stage {
   position: relative;
   width: 100%;
   height: 100%;
   background: #ccc;
 }
-.img-container{
+.img-container {
   position: relative;
   width: 100%;
   height: 100%;
   background: #dedede;
   overflow: hidden;
 }
-.img-figure{
+.img-figure {
   position: absolute;
   width: 280px;
   height: 300px;
@@ -52,77 +53,83 @@ h3{
   border-radius: 3px;
   box-sizing: border-box;
   perspective: 1800px;
-  box-shadow: 5px 5px 16px -1px rgba(0,0,0,0.19);
+  box-shadow: 5px 5px 16px -1px rgba(0, 0, 0, 0.19);
   background: #fff;
   cursor: pointer;
   transform-style: preserve-3d;
   transform-origin: 0 50% 0;
-  transition: left .5s ease-in-out,
-              top .5s ease-in-out,
-              transform .5s ease-in-out;
-  img{
+  transition: left 0.5s ease-in-out, top 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+  img,
+  video {
     width: 240px;
+    height: 240px;
+    object-fit: cover;
   }
-  figcaption{
+  figcaption {
     text-align: center;
   }
-  .img-title{
-    font-size: 16px; 
+  .img-title {
+    font-size: 16px;
     color: #a7a2a0;
     margin: 5px 0 0 0;
   }
 }
-.img-figure.is-reverse{
-    transform: translate(320px) rotateY(180deg);
+.img-figure.is-reverse {
+  transform: translate(320px) rotateY(180deg);
 }
-.front, .back {
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    text-align: center;
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  text-align: center;
+}
+#add-button {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
 }
 .front {
-	z-index: 2;
-	transform: rotateY(0deg);
+  z-index: 2;
+  transform: rotateY(0deg);
 }
 
 .back {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-.img-nav{
+.img-nav {
   position: absolute;
   left: 0;
   bottom: 30px;
   text-align: center;
   z-index: 100;
   width: 100%;
-  .controller{
+  .controller {
     display: inline-block;
     width: 30px;
     height: 30px;
     background: #999;
     border-radius: 50%;
-    transform: scale(.5);
-    transition: transform .6s ease-in-out,background-color .3s ;
+    transform: scale(0.5);
+    transition: transform 0.6s ease-in-out, background-color 0.3s;
     vertical-align: middle;
     cursor: pointer;
-    &.is-center{
+    &.is-center {
       transform: scale(1);
-       &:after{
+      &:after {
         font-family: "iconfont";
         content: "\e60f";
         line-height: 30px;
         color: #fff;
         webkit-font-smoothing: antialiased;
       }
-      &.is-reverse{
+      &.is-reverse {
         background-color: #555;
         transform: rotateY(180deg);
       }
     }
-
   }
 }
-
