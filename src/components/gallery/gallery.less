@@ -85,8 +85,39 @@ h3 {
   top: 0;
   left: 0;
   padding: 20px;
+  height: 100%;
+  width: 100%;
   text-align: center;
 }
+
+.edit-bar {
+  position: absolute;
+  right: -25px;
+  bottom: -25px;
+  visibility: hidden;
+  transition: visibility 0.5s;
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  text-align: center;
+  line-height: 2em;
+  background: #56b4f8;
+  color: white;
+  font-weight: bold;
+}
+.front:hover + .edit-bar {
+  visibility: visible;
+}
+
+.edit-bar::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  left: -20px;
+}
+
 #add-button {
   position: fixed;
   right: 20px;

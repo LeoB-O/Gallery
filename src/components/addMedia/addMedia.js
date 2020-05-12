@@ -76,7 +76,7 @@ function AddMedia({ visible, onOk, onCancel } = { visible: true }) {
         setLoading(false);
         onOk();
       })
-      .catch(() => {});
+      .catch(() => { });
   }
 
   return (
@@ -86,15 +86,15 @@ function AddMedia({ visible, onOk, onCancel } = { visible: true }) {
         visible={visible}
         onOk={handleUpload}
         onCancel={onCancel}
-        // forceRender
+      // forceRender
       >
         <Form
           {...layout}
           form={form}
           name="basic"
           initialValues={{ remember: true }}
-          // onFinish={onFinish}
-          // onFinishFailed={onFinishFailed}
+        // onFinish={onFinish}
+        // onFinishFailed={onFinishFailed}
         >
           <Form.Item
             label="标题"
@@ -132,8 +132,8 @@ function AddMedia({ visible, onOk, onCancel } = { visible: true }) {
                   <video autoPlay src={imageUrl} style={{ width: "100%" }} />
                 </div>
               ) : (
-                uploadButton
-              )}
+                  uploadButton
+                )}
             </Upload>
           </Form.Item>
         </Form>

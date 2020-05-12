@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 
 class Image extends Component {
   constructor(props) {
@@ -16,6 +18,12 @@ class Image extends Component {
     }
 
     e.preventDefault();
+  }
+  async removeImage(e) {
+    e.stopPropagation();
+    await axios.post('http://localhost:4001/remove', { id: this.props.data.id });
+    e.preventDefault()
+    this.props.onRemove();
   }
   componentWillReceiveProps() {
     console.log(this.props.data.url);
@@ -68,7 +76,7 @@ class Image extends Component {
           {this.state.videoDispaly ? (
             <video
               controls
-              autoPlay={screen.width>1000?true:false}
+              autoPlay={screen.width > 1000 ? true : false}
               muted
               loop
               src={this.props.data.url}
@@ -80,6 +88,7 @@ class Image extends Component {
           ) : null}
           <h3 className="img-title">{this.props.data.title}</h3>
         </div>
+        <div className="edit-bar" onClick={this.removeImage.bind(this)}>X</div>
         <div className="back" onClick={this.handleClick.bind(this)}>
           <p>{this.props.data.desc}</p>
         </div>

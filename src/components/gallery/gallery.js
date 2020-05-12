@@ -201,8 +201,7 @@ class Gallery extends Component {
       },
     };
     let FImgsData = await (await fetch(config.baseUrl)).json();
-    console.log(FImgsData);
-    console.log(process);
+    FImgsData.data = FImgsData.data.filter((img) => !img.remove);
     ImgInfos = FImgsData.data.map((img) => {
       return Object.assign({}, img, {
         url: `${config.staticUrl}/${img.filename}`,
@@ -235,6 +234,10 @@ class Gallery extends Component {
             arrange={this.state.figureArrangeArr[index]}
             reverse={this.reverseFigure(index)}
             center={this.putFigureCenter(index)}
+            onRemove={() => {
+              console.log('in remove');
+              this.componentDidMount();
+            }}
           />
         );
         navigators.push(
