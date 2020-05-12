@@ -10,10 +10,12 @@ const config = {
   production: {
     baseUrl: "https://api.leobob.cn/gallery",
     staticUrl: "http://www.leobob.cn/gallery",
+    removeUrl: "https://api.leobob.cn/remove"
   },
   development: {
     baseUrl: "http://localhost:4001/gallery",
     staticUrl: "http://localhost:4001/gallery/gallery",
+    removeUrl: "http://localhost:4001/remove"
   },
 };
 

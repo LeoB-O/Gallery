@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import config from "../../config";
 
 class Image extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Image extends Component {
   }
   async removeImage(e) {
     e.stopPropagation();
-    await axios.post('http://localhost:4001/remove', { id: this.props.data.id });
+    await axios.post(config.removeUrl, { id: this.props.data.id });
     e.preventDefault()
     this.props.onRemove();
   }
